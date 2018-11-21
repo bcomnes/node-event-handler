@@ -36,8 +36,12 @@ test('handles events when instantiated with a node', t => {
   const ee = new EventEmitter()
 
   class HandlerClass {
+    constructor () {
+      this.foo = 'bar'
+    }
     oncustomevent (ev) {
       t.equal(ev.detail.unicorn, 'rainbows', 'handled event')
+      t.equal(this.foo, 'bar', 'bound properties are accessible')
       t.end()
     }
   }

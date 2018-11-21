@@ -18,7 +18,7 @@ class NodeEventHandler {
   };
 
   handleEvent (eventType) {
-    if (!this.boundHandlers[eventType]) this.boundHandlers[eventType] = (this.ctx['on' + eventType]).bind(this)
+    if (!this.boundHandlers[eventType]) this.boundHandlers[eventType] = (this.ctx['on' + eventType]).bind(this.ctx)
     return this.boundHandlers[eventType]
   }
 
